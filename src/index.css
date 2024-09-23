@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'YourCustomFont';
+    src: url('./font/Howdy%20Lemon.otf') format('opentype'),
+         url('./font/Howdy%20Lemon.ttf') format('truetype');
+  }
+  
+  
