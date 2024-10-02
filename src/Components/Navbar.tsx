@@ -11,11 +11,13 @@ export const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToAppointments = () => {
-    const appointmentsSection = document.getElementById('appointments');
-    if (appointmentsSection) {
-      appointmentsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goToBookingPage = () => {
+    window.location.href = 'https://squareup.com/appointments/book/wnu3kkm3ou3mzg/LR9195PEZSSME/start';
+  };
+
+  const handleMenuItemClick = (section) => {
+    setIsOpen(false); 
+    window.location.href = section; 
   };
 
   return (
@@ -26,12 +28,12 @@ export const Navbar = () => {
       </div>
 
       <div className="hidden justify-between md:flex space-x-4 p-4 w-4/6 text-lg">
-        {['Home', 'Services', 'Location', 'Testimonials', 'Gallery', 'Appointments', 'Contact', 'FAQ',].map((item) => (
+        {['Home', 'Services', 'Location', 'Testimonials', 'Gallery', 'Team', 'Contact', 'FAQ'].map((item) => (
           <a key={item} href={`#${item.toLowerCase()}`} className='transition-transform duration-300 hover:scale-150'>
             {item}
           </a>
         ))}
-        <button onClick={scrollToAppointments} className="bg-rose-200 text-black font-custom p-2 rounded-xl">Book Now</button>
+        <button onClick={goToBookingPage} className="bg-rose-200 text-black font-custom p-2 rounded-xl">Book Now</button>
       </div>
 
       <div className="md:hidden">
@@ -42,12 +44,17 @@ export const Navbar = () => {
 
       {isOpen && (
         <div className="flex flex-col space-y-6 bg-white w-full h-screen p-4 absolute top-16 left-0 z-50 md:hidden items-center text-lg text-black">
-          {['Home', 'Services', 'Location', 'Testimonials', 'Gallery', 'Appointments', 'Contact', 'FAQ'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className='transition-transform duration-300 hover:scale-150'>
+          {['Home', 'Services', 'Location', 'Testimonials', 'Gallery', 'Team', 'Contact', 'FAQ'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="transition-transform duration-300 hover:scale-150"
+              onClick={() => handleMenuItemClick(`#${item.toLowerCase()}`)} // Close navbar after clicking
+            >
               {item}
             </a>
           ))}
-          <button onClick={scrollToAppointments} className="bg-rose-200 text-black font-custom p-2 rounded-xl">Book Now</button>
+          <button onClick={goToBookingPage} className="bg-rose-200 text-black font-custom p-2 rounded-xl">Book Now</button>
         </div>
       )}
     </div>

@@ -1,20 +1,57 @@
-import React from 'react'
-import logo from '../assets/owner.png'
+import React, { useRef, useState } from 'react';
+import emailjs from 'emailjs-com';
+
 export const Contact = () => {
+  const form = useRef();
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.send('service_dqs8yel', 'template_ie5zwem', {
+      name: form.current.name.value,
+      phone: form.current.phone.value,
+      email: form.current.email.value,
+      message: form.current.message.value,
+    }, 'D27CPhcKan1F1Zda7')
+      .then((result) => {
+        console.log(result.text);
+        alert('Email sent successfully!');
+        form.current.reset(); 
+        setIsSubmitted(true); 
+      }, (error) => {
+        console.log(error.text);
+        alert('Error sending email. Please try again.');
+      });
+  };
+  
+
+
+
   return (
-    <div className='flex flex-col justify-center items-center p-10  md:w-1/2 space-y-6 m-auto'>
-        <h1 className="text-2xl font-bold underline transition-transform duration-300 hover:scale-150 font-custom text-center mb-4">Meet The Owner</h1>
-        <div className='flex justify-center items-center'>
-        <img src={logo} alt='owner pic' className='pb-6 w-96'/>
+    <div className='bg-white border-b-2 border-rose-300'>
+    <form ref={form} onSubmit={sendEmail} className='flex flex-col space-y-10'>
+      <div className='flex flex-col justify-center items-center p-10 lg:m-1/2 md:w-1/2 space-y-6 m-auto'>
+        <h1 className="text-2xl font-custom underline text-center mt-[-20px] transition-transform duration-300 hover:scale-150 p-4">Send Us Message</h1>
+
+        <div className="flex flex-row justify-between items-center space-x-8 w-full m-auto">
+          <input type="text" name="name" className="border-2 rounded-md p-2 w-2/3 border-rose-300 bg-rose-100" placeholder="Name:" required />
+          <input type="text" name="phone" className="border-2 border-rose-300 rounded-md p-2 bg-rose-100" placeholder="Phone No:" required />
         </div>
-        
-        <h1 className='text-2xl font-custom text-center '>Anisha Lamichhane Aryal</h1>
-        <div className='flex justify-center items-center'>
-        <p className='text-justify md:w-full p-6 mt-[-8px] '>
-        Anisha Lamichhane Aryal is the passionate owner of Brows By Ani, where she transforms beauty into an art form. With a keen eye for detail and a deep appreciation for aesthetics, Anisha has dedicated herself to enhancing the natural beauty of her clients. Her journey in this field is fueled by a love for creating elegant, polished looks that empower individuals to feel confident and beautiful. Through her expertise and commitment to quality, Anisha continually strives to redefine beauty standards, making every visit to Brow By Ani a memorable experience.
-        </p>
+
+        <input type="email" name="email" className="border-2 border-rose-300 rounded-md p-2 w-full bg-rose-100" placeholder="Email:" required />
+        <textarea name="message" className="border-2 border-rose-300 rounded-md p-2 w-full h-48 bg-rose-100" placeholder="Message:"></textarea>
+        <button type='submit' className='bg-rose-200 rounded-full p-3  m-auto text-black font-custom text-2xl items-center'>Send Message</button>
+      </div>
+
+      {isSubmitted && (
+        <div className="text-center text-black text-2xl font-custom mt-6">
+          <p>Thank you!! We will contact you soon.</p>
         </div>
-        
+      )}
+    </form>
     </div>
-  )
-}
+  );
+};

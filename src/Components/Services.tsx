@@ -6,11 +6,8 @@ export const Services: React.FC = () => {
   const toggleDescription = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-  const scrollToAppointments = () => {
-    const appointmentsSection = document.getElementById('appointments');
-    if (appointmentsSection) {
-      appointmentsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goToBookingPage = () => {
+    window.location.href = 'https://squareup.com/appointments/book/wnu3kkm3ou3mzg/LR9195PEZSSME/start';
   };
 
 
@@ -23,9 +20,9 @@ export const Services: React.FC = () => {
     { title: "Brow Henna", description: "If you're looking for fuller, thicker brows or dealing with patchy areas, our brow henna service is perfect for you! This treatment enhances your natural shape with rich color, resulting in Instagram-worthy brows. Avoid wetting your brows for 24 hours after your appointment.",Price: "$30"  },
     { title: "Tint (Darkening)", description: "Enhance your natural beauty with our darkening tint service for brows and lashes. This treatment deepens your natural color, creating a fuller look that lasts without daily makeup. Avoid wetting the area for 24 hours post-appointment.",Price: "$20"  },
     { title: "Tint (Lightening)", description: "Brighten your brows and lashes with our lightening tint service. This gentle treatment softens your color, providing a lighter, more delicate look that enhances your features effortlessly. Avoid wetting the area for 24 hours after your session.", Price: "$20"  },
-    { title: "Lash Lift & Tint", description: "Elevate your lashes with our lash lift and tint service! This semi-permanent treatment lifts and curls your natural lashes while the tint adds definition. Enjoy stunning lashes without the daily hassle—just remember to come in with clean lashes. ", Price:"$80" },
+    { title: "Lash Lift & Tint", description: "Elevate your lashes with our lash lift and tint service! This semi-permanent treatment lifts and curls your natural lashes while the tint adds definition. Enjoy stunning lashes without the daily hassle—just remember to come in with clean lashes. ", Price:"$90" },
     { title: "Lash Tint", description: "Revitalize your lashes with our lash tint service, creating the effect of wearing mascara without the morning routine. This service provides beautifully defined lashes while allowing you to enjoy a natural look. Avoid wetting your lashes for 24 hours after your appointment. ", Price: "$50" },
-    { title: "Lash Lift", description: "Transform your natural lashes with our lash lift service, giving them a beautiful curl and lift. This treatment enhances your lashes, making them look fuller and more defined without the need for mascara. Avoid wetting your lashes for 24 hours post-service.", Price: "$70" },
+    { title: "Lash Lift", description: "Transform your natural lashes with our lash lift service, giving them a beautiful curl and lift. This treatment enhances your lashes, making them look fuller and more defined without the need for mascara. Avoid wetting your lashes for 24 hours post-service.", Price: "$80" },
     { title: "Forehead", description: "Achieve a smooth forehead with our threading service! Our expert technique removes unwanted baby hairs, giving you a polished look without the hassle of constant maintenance.", Price: "$10" },
     { title: "SideBurns", description: "Refresh your look with our sideburns threading service! Our precise technique shapes and cleans up sideburns, giving you a modern, clean-cut appearance. ", Price: "$12" },
     { title: "Upper Lip", description: "Gently remove unwanted hair from your upper lip with our threading service. This precise method leaves your upper lip smooth and well-defined, enhancing your overall appearance. ", Price: "$10"  },
@@ -51,7 +48,7 @@ export const Services: React.FC = () => {
             <div className='bg-white rounded-2xl p-2 text-center'>
                 <p className="text-md text-center pl-2 pr-2 font-custom">{`Pricing: ${service.Price}`}</p>
                 <p className="text-md text-justify pl-2 pr-2">{service.description}</p>
-                <button onClick={scrollToAppointments} className="bg-rose-200  text-black font-custom p-2 rounded-xl">Book Now</button>
+                <button onClick={goToBookingPage} className="bg-rose-200  text-black font-custom p-2 rounded-xl">Book Now</button>
             </div>
             )}
 

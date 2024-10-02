@@ -7,7 +7,7 @@ import { Location } from './Location';
 import { Testimonials } from './Testimonials';
 import { Gallery } from './Gallery';
 import { Contact } from './Contact';
-import { Appointments } from './Appointments';
+import { Team } from './Team';
 import { FAQ } from './FAQ';
 import { Info } from './Info';
 
@@ -22,9 +22,9 @@ const AppRouter = () => {
                 <Route path="/location" element={<Location />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/gallery" element={<Gallery />} />
-                <Route path="/appointments" element={<Appointments />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/team" element={<Team />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/info" element={<Info />} />
             </Routes>
         </Router>

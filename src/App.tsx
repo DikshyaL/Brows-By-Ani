@@ -6,9 +6,10 @@ import { Location } from './Components/Location';
 import { Testimonials } from './Components/Testimonials';
 import { Gallery } from './Components/Gallery';
 import { Contact } from './Components/Contact';
-import { Appointments } from './Components/Appointments';
 import { FAQ } from './Components/FAQ';
 import { Info } from './Components/Info';
+import Booknow from './Components/Booknow';
+import { Team } from './Components/Team';
 
 export const Page = () => {
   return (
@@ -19,10 +20,11 @@ export const Page = () => {
       <div id="location"><Location /></div>
       <div id="testimonials"><Testimonials /></div>
       <div id="gallery"><Gallery /></div>
-      <div id="contact"><Contact /></div>
-      <div id="appointments"><Appointments /></div>
+      <div id="team"><Team /></div>
       <div id="faq"><FAQ /></div>
+      <div id="contact"><Contact /></div>
       <div id="info"><Info /></div>
+      <Booknow />
     </div>
   );
 };
