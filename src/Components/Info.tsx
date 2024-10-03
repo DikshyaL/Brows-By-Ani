@@ -10,7 +10,7 @@ export const Info = () => {
 
                <div className='flex flex-col items-center space-y-2'>
                     <a
-                        href="https://www.instagram.com/browsby_ani/"
+                        href="https://www.instagram.com/browsbyani/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2 text-rose-300"
